@@ -1,0 +1,1 @@
+My solutions for the Stadford Coursera course on machine learning. Solutions are provided in Matlab and Python. **In progress - Updated weekly or so.**
