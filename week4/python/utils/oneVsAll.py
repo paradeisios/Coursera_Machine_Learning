@@ -15,24 +15,21 @@ def oneVsAll(X,y,num_labels,l):
     X_0 = np.ones((row,1))
     X   = np.concatenate((X_0,X),axis=1)
     
-    y = np.where(y==10,0,y)
-    
     all_theta = np.zeros((num_labels, col + 1))
     
     for c in range(num_labels):
         
         print(f"Working on num: {c}")
-        
-        y = y = np.where(y==c,1,0)
         initial_theta = np.zeros(col+ 1)
         
         res = minimize(lrCostFunction, 
                         initial_theta, 
-                        (X, y, l), 
+                        (X, (y==c).astype(int), l), 
                         jac=True, 
                         method='CG',
-                        options={'maxiter': 50}) 
+                        options={'maxiter': 400,
+                                 'disp':True}) 
         
-        all_theta[c]=res.x
+        all_theta[c,:]=res.x
    
     return all_theta
