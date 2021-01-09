@@ -22,11 +22,14 @@ p = zeros(size(X, 1), 1);
 %
 
 
+X = [ones(m, 1) X];
+hypothesis = sigmoid(X*Theta1');
 
+layer1 = [ones(m, 1) hypothesis];
 
+output = sigmoid(layer1*Theta2');
 
-
-
+[~,p]=max(output,[],2);
 
 
 % =========================================================================
