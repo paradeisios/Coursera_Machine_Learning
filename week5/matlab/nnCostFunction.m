@@ -41,14 +41,13 @@ for ii=1:m
   y_dummy(:,ii) = y_temp;
 end 
 
-theta1_grad = sum(sum(Theta1(:,2:end).^2))
-theta2_grad = sum(sum(Theta2(:,2:end).^2))
+theta1_grad = sum(sum(Theta1(:,2:end).^2));
+theta2_grad = sum(sum(Theta2(:,2:end).^2));
 
-reg_param = (lambda / (2*m)) * (theta1_grad + theta2_grad)
+reg_param = (lambda / (2*m)) * (theta1_grad + theta2_grad);
 
 J = (1/m) * sum(sum((-y_dummy' .* log(a3))-((1-y_dummy').*log(1-a3)))) + reg_param;
 
-#######################
 
 
 
